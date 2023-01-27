@@ -7,7 +7,6 @@ SPRITE_SCALING = 0.1
 MOVEMENT_SPEED = 4
 
 
-
 class Player(arcade.Sprite):
     def update(self):
         self.center_x += self.change_x
@@ -15,7 +14,7 @@ class Player(arcade.Sprite):
         if self.left < 0:
             self.left = 0
         elif self.right > SCREEN_WIDTH - 1:
-            self.right = SCREEN_WIDTH - 1
+            self.right = SCREEN_WIDTH -1
         if self.bottom < 0:
             self.bottom = 0
         elif self.top > SCREEN_HEIGHT - 1:
@@ -23,11 +22,11 @@ class Player(arcade.Sprite):
 
 
 class MyGame(arcade.Window):
-    def __init__(self,width,height,title):
+    def __init__(self, width, height, title):
         super().__init__()
         self.player_list = None
         self.player_sprite = None
-        self.walls = None
+        self.walls_list = None
         arcade.set_background_color(arcade.color.WHITE)
 
     def setup(self):
@@ -42,13 +41,13 @@ class MyGame(arcade.Window):
     def on_draw(self):
         arcade.start_render()
         self.player_list.draw()
-        arcade.draw_line(50, 450, 50, 200, arcade.color.BLACK, 4)  # first room left wall
-        arcade.draw_line(50, 450, 170, 450, arcade.color.BLACK, 4)  # first room top wall
-        arcade.draw_line(170, 450, 170, 250, arcade.color.BLACK, 4)  # first room right wall
-        arcade.draw_line(170, 250, 220, 250, arcade.color.BLACK, 4)  # first small wall
-        arcade.draw_line(50, 200, 270, 200, arcade.color.BLACK, 4)  # first room floor
-        arcade.draw_line(220, 250, 220, 420, arcade.color.BLACK, 4)  # above first room small wall
-        arcade.draw_line(270, 200, 270, 260, arcade.color.BLACK, 4)  # small wall right tunnel wall
+        #arcade.draw_line(50, 450, 50, 200, arcade.color.BLACK, 4)  # first room left wall
+        #arcade.draw_line(50, 450, 170, 450, arcade.color.BLACK, 4)  # first room top wall
+        #arcade.draw_line(170, 450, 170, 250, arcade.color.BLACK, 4)  # first room right wall
+        #arcade.draw_line(170, 250, 220, 250, arcade.color.BLACK, 4)  # first small wall
+        #arcade.draw_line(50, 200, 270, 200, arcade.color.BLACK, 4)  # first room floor
+        #arcade.draw_line(220, 250, 220, 420, arcade.color.BLACK, 4)  # above first room small wall
+        #arcade.draw_line(270, 200, 270, 260, arcade.color.BLACK, 4)  # small wall right tunnel wall
     def on_update(self,delta_time):
         self.player_list.update()
 
